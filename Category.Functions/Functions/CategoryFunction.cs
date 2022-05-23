@@ -66,7 +66,7 @@ namespace Category.Functions.Functions
         [OpenApiSecurity("function_key", SecuritySchemeType.ApiKey, Name = "code", In = OpenApiSecurityLocationType.Query)]
         [OpenApiResponseWithBody(statusCode: HttpStatusCode.OK, contentType: "application/json", bodyType: typeof(IEnumerable<CategoryVm>), Description = "The OK response")]
         public async Task<IActionResult> AllCompanies(
-            [HttpTrigger(AuthorizationLevel.Function, "get", Route = "categries")] HttpRequest req)
+            [HttpTrigger(AuthorizationLevel.Anonymous, "get", Route = "categries")] HttpRequest req)
         {
             try
             {
